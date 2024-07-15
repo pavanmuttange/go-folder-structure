@@ -1,20 +1,20 @@
 # go-folder-structure
 
-# In this setup:
+ In this setup:
 
-# Model: Represents the user data and database schema using GORM.
+ Model: Represents the user data and database schema using GORM.
 
-# Service: Handles the business logic and database interactions with GORM.
+ Service: Handles the business logic and database interactions with GORM.
 
-# Controller: Handles HTTP requests and responses.
+ Controller: Handles HTTP requests and responses.
 
-# Routes: Defines the API endpoints and injects the database connection into controllers.
+ Routes: Defines the API endpoints and injects the database connection into controllers.
 
-# This approach makes the system more modular and easily extensible for future microservices by centralizing the database initialization and using dependency injection for controllers.
+ This approach makes the system more modular and easily extensible for future microservices by centralizing the database initialization and using dependency injection for controllers.
 
 ## Clone the Repository
 
-# To clone this repository, run:
+ To clone this repository, run:
 
 ```sh
 git clone https://github.com/pavanmuttange/go-folder-structure.git
