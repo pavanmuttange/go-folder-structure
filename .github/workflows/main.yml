@@ -47,16 +47,19 @@ jobs:
         docker build . -t ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
 
+    - name: Set up Minikube
+      uses: medyagh/setup-minikube@latest
+      with:
+        minikube-version: 'latest'
+        driver: docker
+
+    - name: Start Minikube
+      run: minikube start --driver=docker
+
     - name: Set up Kubectl
       uses: azure/setup-kubectl@v1
       with:
         version: 'v1.21.0'
-
-    - name: Create .kube directory
-      run: mkdir -p $HOME/.kube
-
-    - name: Decode kubeconfig
-      run: echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
 
     - name: Deploy to Kubernetes
       run: |
