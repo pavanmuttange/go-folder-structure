@@ -69,8 +69,6 @@ jobs:
       run: |
         kubectl get pods -o wide
         kubectl get services -o wide
-        kubectl describe deployment deployments
-        kubectl describe service services
 
     - name: Get all resources
       run: |
