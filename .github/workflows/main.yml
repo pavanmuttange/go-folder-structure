@@ -25,7 +25,7 @@ jobs:
       run: go mod tidy
 
     - name: Build the Go app
-      run: go build -o main .
+      run: CGO_ENABLED=1 go build -o main .
 
     - name: Run tests
       run: go test ./...
@@ -49,8 +49,9 @@ jobs:
       with:
         version: 'v1.21.0'
 
-    - name: Deploy to Minikube
-      env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+    - name: Decode kubeconfig
+      run: echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+
+    - name: Deploy to Kubernetes
       run: |
         kubectl apply -f k8s/deployment-and-service.yaml
