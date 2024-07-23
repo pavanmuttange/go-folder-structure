@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: crud-app
-        image: <your-docker-username>/crud-app:latest
+        image: smpavan/crud-app:latest
         ports:
         - containerPort: 8080
 
